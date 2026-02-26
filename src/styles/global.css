@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    --bg-deep: #01110a;
+    --swamp-green: #0a2e1f;
+    --gold: #c8aa6e;
+    --gold-bright: #f0e6d2;
+    --magic-cyan: #11caa0;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+    overflow: hidden;
+    color: var(--gold-bright);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.step-circle { 
+    width: 50px; 
+    height: 50px; 
+    border: 2px solid var(--gold); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 0 auto 15px; 
+    background: var(--bg-deep); 
+    font-family: 'Cinzel Decorative', cursive; 
+    font-size: 20px; 
+    transition: all 0.3s ease;
+}
+
+.step.active .step-circle { 
+    border-color: var(--magic-cyan); 
+    color: var(--magic-cyan); 
+    box-shadow: 0 0 15px var(--magic-cyan); 
+}
+
+/* ── Navigation arrows ───────────────────────────────────── */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+.nav-arrow--prev { left: 1.75rem; }
+.nav-arrow--next { right: 1.75rem; }
+
+.nav-arrow--disabled {
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.nav-arrow svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    stroke: var(--gold);
+    fill: none;
+    filter: drop-shadow(0 0 4px rgba(200, 170, 110, 0.4));
+    transition: stroke 0.25s, filter 0.25s, transform 0.25s;
+}
+
+.nav-arrow:hover svg {
+    stroke: var(--gold-bright);
+    filter: drop-shadow(0 0 10px rgba(200, 170, 110, 0.9));
+}
+
+.nav-arrow--prev:hover svg { transform: translateX(-3px); }
+.nav-arrow--next:hover svg { transform: translateX(3px); }
